@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPlugins", "MyPlugins\MyPlugins.csproj", "{D00A3C3A-E43A-47DD-B415-3B0AA68C50DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflows", "CustomWorkflows\CustomWorkflows.csproj", "{421D74B5-0EB4-4944-BC69-E8BF93E752CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamTailorWebhooks1", "TeamTailorWebhooks1\TeamTailorWebhooks1.csproj", "{CF4BB827-CB52-4DBF-9554-FA8882C6FCE2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{8D0A4FD9-57F1-4EE4-8B7E-8AFD9D3E4F82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web resources", "Web resources", "{EB7A42AC-B022-40F0-9DD7-8734F1C9B5B1}"
+	ProjectSection(SolutionItems) = preProject
+		accountscript.js = accountscript.js
+		control.html = control.html
+		proj.html = proj.html
+		task.html = task.html
+		Web resources.txt = Web resources.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleFunctionApp", "SampleFunctionApp\SampleFunctionApp.csproj", "{9D3ED48D-9311-49A5-8661-B885064A4ABB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D00A3C3A-E43A-47DD-B415-3B0AA68C50DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00A3C3A-E43A-47DD-B415-3B0AA68C50DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00A3C3A-E43A-47DD-B415-3B0AA68C50DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00A3C3A-E43A-47DD-B415-3B0AA68C50DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{421D74B5-0EB4-4944-BC69-E8BF93E752CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{421D74B5-0EB4-4944-BC69-E8BF93E752CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{421D74B5-0EB4-4944-BC69-E8BF93E752CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{421D74B5-0EB4-4944-BC69-E8BF93E752CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF4BB827-CB52-4DBF-9554-FA8882C6FCE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF4BB827-CB52-4DBF-9554-FA8882C6FCE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF4BB827-CB52-4DBF-9554-FA8882C6FCE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF4BB827-CB52-4DBF-9554-FA8882C6FCE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D0A4FD9-57F1-4EE4-8B7E-8AFD9D3E4F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0A4FD9-57F1-4EE4-8B7E-8AFD9D3E4F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0A4FD9-57F1-4EE4-8B7E-8AFD9D3E4F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0A4FD9-57F1-4EE4-8B7E-8AFD9D3E4F82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D3ED48D-9311-49A5-8661-B885064A4ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D3ED48D-9311-49A5-8661-B885064A4ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D3ED48D-9311-49A5-8661-B885064A4ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D3ED48D-9311-49A5-8661-B885064A4ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {933FFF7D-E938-43D8-B746-3D0D480FC745}
+	EndGlobalSection
+EndGlobal

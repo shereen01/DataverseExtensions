@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function RetreiveAllEntities(executionContext) {
+            var Sdk = window.Sdk || {};
+            /**
+             * Request to execute RetreiveAllEntities function
+             */
+            Sdk.RetreiveAllEntitiesRequest = function () { };
+            // NOTE: The getMetadata property should be attached to the function prototype instead of the
+            //       function object itself.
+            Sdk.RetreiveAllEntitiesRequest.prototype.getMetadata = function () {
+                return {
+                    boundParameter: null,
+                    parameterTypes: {},
+                    operationType: 1, // This is a function. Use '0' for actions and '2' for CRUD
+                    operationName: "RetreiveAllEntities",
+                };
+            };
+
+            // Construct a request object from the metadata
+            var RetreiveAllEntitiesRequest = new Sdk.RetreiveAllEntitiesRequest();
+
+            // Use the request object to execute the function
+            window.parent.Xrm.WebApi.online.execute(RetreiveAllEntitiesRequest)
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log("Status: %s %s", response.status, response.statusText);
+
+                        // Use response.json() to access the content of the response body.
+                        return response.json();
+                    }
+                }
+                )
+                .then(function (responseBody) {
+                    console.log("User Id: %s", responseBody.UserId);
+                    // perform other operations as required;
+                })
+                .catch(function (error) {
+                    console.log(error.message);
+                    // handle error conditions
+                });
+        }
+    </script>
+</head>
+<body RetreiveAllEntities()>
+    <form>
+        <fieldset>
+            <legend>Competency 15 Event Listeners</legend>
+            <ol>
+                <li><button type="text" id="theButton" onclick="RetreiveAllEntities()">Tables</button></li>
+                <li><input type="text" name="popup" id="popup"></li>
+            </ol>
+        </fieldset>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function CustomFunction() {
+           //var name = window.parent.Xrm.Page.getAttribute("name").getValue();
+            // create rec by calling web api
+            // define the data to create new account
+            var firstname = document.getElementById("Text1").value = name;
+            var lastname= document.getElementById("Text2").value = name;
+            var data =
+            {
+                "firstname": firstname,
+                "lastname": lastname,
+            }
+
+            // create account record
+            window.parent.Xrm.WebApi.createRecord("contact", data).then(
+                function success(result) {
+                    console.log("contact created with ID: " + result.id);
+                    // perform operations on record creation
+                },
+                function (error) {
+                    console.log(error.message);
+                    // handle error conditions
+                }
+            );
+            var fetchXml = "?fetchXml=<fetch mapping='logical'><entity name='account'><attribute name='accountid'/><attribute name='name'/></entity></fetch>";
+
+            Xrm.WebApi.retrieveMultipleRecords("account", fetchXml).then(
+                function success(result) {
+                    for (var i = 0; i < result.entities.length; i++) {
+                        console.log(result.entities[i]);
+                    }
+
+                    // perform additional operations on retrieved records
+                },
+                function (error) {
+                    console.log(error.message);
+                    // handle error conditions
+                }
+            );
+            var userRoles = Xrm.Utility.getGlobalContext().userSettings.roles;
+            userRoles.foreach(x => console.log(x.name));
+        }
+    </script>
+</head>
+<body>
+    Enter firstname<input id="Text1" type="text" />
+    <br />
+    Enter lastname <input id="Text2" type="text" />
+    <br />
+      <input id="Submit1" type="submit" value="Create Contact" onclick="CustomFunction()" />
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function RetreiveAllEntities() {
+
+
+            var Sdk = window.Sdk || {};
+            /**
+             * Request to execute RetreiveAllEntities function
+             */
+            Sdk.RetreiveAllEntitiesRequest = function (entityFilters, retrieveAsIfPublished) {
+
+                this.RetrieveAsIfPublished = retrieveAsIfPublished,
+                    this.EntityFilters= entityFilters;
+
+            };
+            // NOTE: The getMetadata property should be attached to the function prototype instead of the
+            //       function object itself.
+            Sdk.RetreiveAllEntitiesRequest.prototype.getMetadata = function () {
+                return {
+                    boundParameter: null,
+                    parameterTypes: {
+                        "RetrieveAsIfPublished": {
+                            "typeName": "Edm.Boolean",
+                            "structuralProperty": 1 // Primitive Type
+                        },
+                        "EntityFilters": {
+                            "typeName": "Edm:EnumType",
+                            "structuralProperty": 3 // Enum Type
+                        }
+                    },
+                    operationType: 1, // This is a function. Use '0' for actions and '2' for CRUD
+                    operationName: "RetreiveAllEntities",
+                };
+            };
+
+            // Construct a request object from the metadata
+            var RetreiveAllEntitiesRequest = new Sdk.RetreiveAllEntitiesRequest(encodeURIComponent("Microsoft.Dynamics.CRM.EntityFilters'All'"), true);
+
+            // Use the request object to execute the function
+            window.parent.Xrm.WebApi.online.execute(RetreiveAllEntitiesRequest)
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log("Status: %s %s", response.status, response.statusText);
+
+                        // Use response.json() to access the content of the response body.
+                        return response.json();
+                    }
+                }
+                )
+                .then(function (responseBody) {
+                    console.log("User Id: %s", responseBody.UserId);
+                    // perform other operations as required;
+                })
+                .catch(function (error) {
+                    console.log(error.message);
+                    // handle error conditions
+                });
+        }
+    </script>
+
+
+</head>
+
+<body onload="RetreiveAllEntities();">
+
+
+    <form>
+        <label for="Entityselect">Select entity</label>
+        <select name="Entity" id="entity1">
+            <option value="Account">Account</option>
+            <option value="Contact">Contact</option>
+            <option value="Activities">Activities</option>
+
+
+        </select>
+
+        <br><br>
+
+
+        <input id="button" type="button" value="select entity">
+        <br /><br />
+
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        $("#button").click(function () {
+            $("#att1").show();
+            //$("#att2").show();
+        });
+        /*$("#Button1").click(function () {
+
+$("#att2").show();
+});*/
+    </script>
+    <script>
+        $(document).ready(function () {
+            var max_fields = 10;
+            var wrapper = $(".container1");
+            var add_button = $(".add_form_field");
+
+            var x = 1;
+            $(add_button).click(function (e) {
+                e.preventDefault();
+                if (x < max_fields) {
+                    x++;
+                    $(wrapper).append('<div>Add Attribute: <input type="text" name="mytext[]" /> Type:<input type="text" name="mytext1[]"/> <input type="button" value="ADD"</div>'); //add input box
+                } else {
+                    alert('You Reached the limits')
+                }
+            });
+
+            /*$(wrapper).on("click", ".delete", function (e) {
+                e.preventDefault();
+                $(this).parent('div').remove();
+                x--;
+            }) */
+        });
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <div class="container1">
+        <button class="add_form_field">
+            ADD &nbsp;
+            <span style="font-size:16px; font-weight:bold;">+ </span>
+        </button>
+        <div>Add Attribute: <input type="text" name="mytext[]"/> Type: <input type="text" name="mytext1[]"/><input type="button" value="ADD"/></div>
+    </div>
+
+    <!----<div id="att1" hidden>
+        Attribute 1 :
+        <input type="text" />
+        Type:
+        <input type="text" />
+        <input id="Button1" type="button" value="ADD" />
+
+    </div>
+    <br>
+    <div id="innerdiv"></div>
+    <button id="mybutton">
+        ADD
+    </button>
+    <script>
+        document.getElementById("mybutton").
+            addEventListener("click", function () {
+                document.getElementById("innerdiv").$("#mybutton").click(function () {
+                    $("#att2").show();
+                });
+
+                    });;
+
+    </script>
+
+
+    <!----<script>
+    $("#Button1").click(function () {
+            $("#att2").show();
+     });
+
+
+    </script>
+
+    <div id="att2" hidden>
+        Attribute 2  :
+        <input type="text" />
+        Type:
+        <input type="text" />
+        <input id="Button1" type="button" value="ADD" />
+
+    </div> -->
+
+
+
+</body>
+</html>
